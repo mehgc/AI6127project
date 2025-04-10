@@ -127,7 +127,7 @@ def evaluate_model(model, tokenizer, test_dataset, dataset_type, num_samples=Non
 
 def main():
     num_samples = None
-    model_name = "/home/msai/ghu003/deepseek-llm-7b-chat"
+    model_name = "/home/msai/ghu003/LLaMA-Factory/models/qwen_med_qa_lora"
     eval_data = ["medqa",
                  "medmcqa",
                  "pubmedqa",

@@ -1,0 +1,15 @@
+
+--- Evaluating on MedQA Test ---
+Metrics for MedQA Test: {'accuracy': 0.5695208169677927, 'precision': 0.5882277882086032, 'recall': 0.5695208169677927, 'f1': 0.5734862479863952}
+Sample Predictions: ['A', 'C', 'B', 'B', 'B']
+Sample Ground Truth: ['B', 'D', 'B', 'D', 'B']
+
+--- Evaluating on MedMCQA Test ---
+Metrics for MedMCQA Test: {'accuracy': 0.5531914893617021, 'precision': 0.5655018347956573, 'recall': 0.5531914893617021, 'f1': 0.5581653849206936}
+Sample Predictions: ['A', 'B', 'D', 'C', 'B']
+Sample Ground Truth: ['A', 'A', 'C', 'C', 'A']
+
+--- Evaluating on PubMedQA Train ---
+Metrics for PubMedQA Train: {'accuracy': 0.532, 'precision': 0.48238258123878996, 'recall': 0.532, 'f1': 0.4792643417749268}
+Sample Predictions: ['A', 'A', 'B', 'C', 'A']
+Sample Ground Truth: ['A', 'B', 'A', 'B', 'A']
