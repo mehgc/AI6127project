@@ -1,38 +1,48 @@
+import random
+
 from datasets import load_dataset
 import os
 import json
 
 # Function to save data as JSON with specified columns
-def save_as_json(data, filename):
+def save_as_json(data, filename, max_items=8000):
     file_path = os.path.join(save_path, filename)
-    data_to_save = []
-    cop_to_letter = {0: "A", 1: "B", 2: "C", 3: "D"}
+    cop_to_letter = {'yes': "A", 'no': "B", 'maybe': "C"}
 
-    # Modify the data to include only 'question' and 'answer' columns
-    for item in data:
-        if item['cop'] not in [0, 1, 2, 3]:  # Skip invalid samples
-            continue
-        choice = cop_to_letter[item['cop']]
+    # First filter all valid items
+    valid_items = [
+        item for item in data
+        if item['final_decision'] in ['yes', 'no', 'maybe']
+    ]
+
+    # Then take a random sample (or all if there are fewer than max_items)
+    sampled_items = random.sample(
+        valid_items,
+        min(max_items, len(valid_items))
+    )
+
+    data_to_save = []
+    for item in sampled_items:
+        choice = cop_to_letter[item['final_decision']]
         data_to_save.append({
-            "instruction": "Below is a medical question with multiple choice options. Provide the letter of the correct answer (e.g., A, B, C, D) and an explanation",
+            "instruction": "Below is a medical question with multiple choice options. Provide only the letter of the correct answer (e.g., A, B, C).",
             "input": f"""### Question:
 {item['question']}
 
 ### Options:
-A: {item['opa']}\nB: {item['opb']}\nC: {item['opc']}\nD: {item['opd']}
+A: Yes\nB: No\nC: Maybe
 
 ### Answer:""",
-            "output": f"{choice}. {item['exp']}",
+            "output": f"{choice}",
         })
 
-    # Write the modified data to a JSON file
     with open(file_path, 'w', encoding='utf-8') as f:
         json.dump(data_to_save, f, ensure_ascii=False, indent=4)
 
 
 if __name__ == '__main__':
     # Load the dataset
-    dataset = load_dataset("pubmed_qa", "pqa_labeled")
+    dataset = load_dataset("pubmed_qa", "pqa_artificial")
 
     # Define the save path
     save_path = "./"

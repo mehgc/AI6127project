@@ -15,7 +15,7 @@ def save_as_json(data, filename):
             continue
         choice = cop_to_letter[item['cop']]
         data_to_save.append({
-            "instruction": "Below is a medical question with multiple choice options. Provide the letter of the correct answer (e.g., A, B, C, D) and an explanation",
+            "instruction": "Below is a medical question with multiple choice options. Provide only the letter of the correct answer (e.g., A, B, C, D).",
             "input": f"""### Question:
 {item['question']}
 
@@ -23,7 +23,7 @@ def save_as_json(data, filename):
 A: {item['opa']}\nB: {item['opb']}\nC: {item['opc']}\nD: {item['opd']}
 
 ### Answer:""",
-            "output": f"{choice}. {item['exp']}",
+            "output": f"{choice}",
         })
 
     # Write the modified data to a JSON file

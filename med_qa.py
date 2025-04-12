@@ -16,10 +16,10 @@ def save_as_json(data, filename):
 {item['question']}
 
 ### Options:
-{item['options'][0]['key'], item['options'][0]['value']}
-{item['options'][1]['key'], item['options'][1]['value']}
-{item['options'][2]['key'], item['options'][2]['value']}
-{item['options'][3]['key'], item['options'][3]['value']}
+{item['options'][0]['key']}: {item['options'][0]['value']}
+{item['options'][1]['key']}: {item['options'][1]['value']}
+{item['options'][2]['key']}: {item['options'][2]['value']}
+{item['options'][3]['key']}: {item['options'][3]['value']}
 
 ### Answer:""",
             "output": item['answer_idx'],
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     # Save the modified data for train, validation, and test splits
     save_as_json(dataset['train'], 'med_qa_train.json')
-    save_as_json(dataset['test'], 'med_qa_test.json')
+    # save_as_json(dataset['test'], 'med_qa_test.json')
 
 
 

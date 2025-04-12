@@ -1,4 +1,7 @@
 {
+  "pubmedqa_train": {
+    "file_name": "pubmedqa_train.json"
+  },
   "medmcqa_train": {
     "file_name": "medmcqa_train.json"
   },

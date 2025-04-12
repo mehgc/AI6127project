@@ -1,0 +1,16 @@
+Evaluating model /home/msai/ghu003/LLaMA-Factory/models/qwen_medqa_medmcqa_pubmedqa_lora_v2/
+
+--- Evaluating on MedQA Test ---
+Metrics for MedQA Test: {'accuracy': 0.6, 'precision': 0.6075917582417583, 'recall': 0.6, 'f1': 0.6012823231525688}
+Sample Predictions: ['A', 'A', 'B', 'D', 'B']
+Sample Ground Truth: ['B', 'D', 'B', 'D', 'B']
+
+--- Evaluating on MedMCQA Test ---
+Metrics for MedMCQA Test: {'accuracy': 0.569, 'precision': 0.5704718063579444, 'recall': 0.569, 'f1': 0.5695207690837647}
+Sample Predictions: ['A', 'B', 'A', 'C', 'B']
+Sample Ground Truth: ['A', 'A', 'C', 'C', 'A']
+
+--- Evaluating on PubMedQA Train ---
+Metrics for PubMedQA Train: {'accuracy': 0.606, 'precision': 0.5330923187439732, 'recall': 0.606, 'f1': 0.5429065640326182}
+Sample Predictions: ['A', 'A', 'A', 'A', 'A']
+Sample Ground Truth: ['A', 'B', 'A', 'B', 'A']

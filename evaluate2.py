@@ -67,6 +67,16 @@ def format_inference_prompt(example, dataset_type):
         options_str = f"A: {example['opa']}\nB: {example['opb']}\nC: {example['opc']}\nD: {example['opd']}"
     elif dataset_type == "pubmedqa":
         options_str = "A: Yes\nB: No\nC: Maybe"
+        prompt = f"""Below is a medical question with multiple choice options. Provide only the letter of the correct answer (e.g., A, B, C)
+
+### Question:
+{question}
+
+### Options:
+{options_str}
+
+### Answer:"""
+        return prompt
     prompt = f"""Below is a medical question with multiple choice options. Provide only the letter of the correct answer (e.g., A, B, C, D).
 
 ### Question:
@@ -126,9 +136,10 @@ def evaluate_model(model, tokenizer, test_dataset, dataset_type, num_samples=Non
 
 
 def main():
-    num_samples = None
-    model_name = "/home/msai/ghu003/LLaMA-Factory/models/qwen_med_qa_lora"
-    eval_data = ["medqa",
+    num_samples = 1000
+    model_name = "/home/msai/ghu003/LLaMA-Factory/models/qwen_medqa_medmcqa_pubmedqa_lora_v2/"
+    eval_data = [
+                 "medqa",
                  "medmcqa",
                  "pubmedqa",
                  ]
@@ -137,6 +148,8 @@ def main():
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
     model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", trust_remote_code=True)
     model.eval()
+
+    print(f"Evaluating model {model_name}")
 
     for data in eval_data:
         if data == "medqa":
