@@ -1,0 +1,17 @@
+📦 加载模型中：/home/msai/ghu003/Qwen2.5-7B-Instruct/
+✅ 模型加载成功，准备开始评估任务！
+
+--- Evaluating on MEDQA ---
+Metrics: {'accuracy': 0.5933333333333334, 'precision': 0.5919672533409647, 'recall': 0.5933333333333334, 'f1': 0.59206840179982}
+Sample Predictions: ['A', 'C', 'B', 'D', 'B']
+Sample Ground Truth: ['B', 'D', 'B', 'D', 'B']
+
+--- Evaluating on MEDMCQA ---
+Metrics: {'accuracy': 0.5666666666666667, 'precision': 0.5713215990358848, 'recall': 0.5666666666666667, 'f1': 0.567839860697772}
+Sample Predictions: ['A', 'B', 'D', 'C', 'B']
+Sample Ground Truth: ['A', 'A', 'C', 'C', 'A']
+
+--- Evaluating on PUBMEDQA ---
+Metrics: {'accuracy': 0.5616666666666666, 'precision': 0.49568137254901956, 'recall': 0.5616666666666666, 'f1': 0.5133276151543908}
+Sample Predictions: ['A', 'A', 'A', 'C', 'A']
+Sample Ground Truth: ['A', 'B', 'A', 'B', 'A']

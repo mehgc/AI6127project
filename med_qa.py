@@ -10,7 +10,7 @@ def save_as_json(data, filename):
 
     # Modify the data to include only 'question' and 'answer' columns
     for item in data:
-        data_to_save.append({
+        content = {
             "instruction": "Below is a medical question with multiple choice options. Provide only the letter of the correct answer (e.g., A, B, C, D).",
             "input": f"""### Question:
 {item['question']}
@@ -23,7 +23,9 @@ def save_as_json(data, filename):
 
 ### Answer:""",
             "output": item['answer_idx'],
-        })
+        }
+        print(content)
+        data_to_save.append(content)
 
     # Write the modified data to a JSON file
     with open(file_path, 'w', encoding='utf-8') as f:

@@ -8,9 +8,14 @@ def save_as_json(data, filename):
     file_path = os.path.join(save_path, filename)
     data_to_save = []
     cop_to_letter = {0: "A", 1: "B", 2: "C", 3: "D"}
+    i = 0
+    max_sample = 10000
 
     # Modify the data to include only 'question' and 'answer' columns
     for item in data:
+        i += 1
+        if i > max_sample:
+            break
         if item['cop'] not in [0, 1, 2, 3]:  # Skip invalid samples
             continue
         choice = cop_to_letter[item['cop']]

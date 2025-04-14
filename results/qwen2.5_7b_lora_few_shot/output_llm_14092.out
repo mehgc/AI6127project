@@ -1,0 +1,17 @@
+📦 加载模型中：/home/msai/ghu003/LLaMA-Factory/models/qwen_medqa_medmcqa_pubmedqa_lora_v2
+✅ 模型加载成功，准备开始评估任务！
+
+--- Evaluating on MEDQA ---
+Metrics: {'accuracy': 0.9983333333333333, 'precision': 0.9983448275862069, 'recall': 0.9983333333333333, 'f1': 0.9983337730469107}
+Sample Predictions: ['B', 'D', 'B', 'D', 'B']
+Sample Ground Truth: ['B', 'D', 'B', 'D', 'B']
+
+--- Evaluating on MEDMCQA ---
+Metrics: {'accuracy': 0.9916666666666667, 'precision': 0.9917032309985518, 'recall': 0.9916666666666667, 'f1': 0.9916555783790509}
+Sample Predictions: ['A', 'A', 'C', 'C', 'A']
+Sample Ground Truth: ['A', 'A', 'C', 'C', 'A']
+
+--- Evaluating on PUBMEDQA ---
+Metrics: {'accuracy': 0.9983333333333333, 'precision': 0.9983421052631579, 'recall': 0.9983333333333333, 'f1': 0.9983343011812942}
+Sample Predictions: ['A', 'B', 'A', 'B', 'A']
+Sample Ground Truth: ['A', 'B', 'A', 'B', 'A']
